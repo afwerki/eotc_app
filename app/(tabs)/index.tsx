@@ -6,6 +6,7 @@ const index = () => {
   return (
     <View>
       <Link href={"/(modals)/login"}> Login</Link>
+      <Link href={"/(modals)/flier"}> flier</Link>
       <Link href={"/(modals)/booking"}> Booking</Link>
       <Link href={"/listing/1337"}> Listing details</Link>
     </View>
