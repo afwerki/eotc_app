@@ -1,95 +1,72 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import { Swipeable } from 'react-native-gesture-handler';
-
-const SwipeableItem = ({ item, onEdit, onDelete }) => {
-  const [isSwiped, setIsSwiped] = useState(false);
-
-  const renderRightActions = (progress, dragX) => {
-    const trans = dragX.interpolate({
-      inputRange: [0, 50, 100],
-      outputRange: [0, 0.2, 1],
-    });
-
-    return (
-      <View style={{ flexDirection: 'row', marginVertical: 8 }}>
-        <TouchableOpacity
-          onPress={() => {
-            onEdit(item.id);
-            setIsSwiped(false);
-          }}
-          style={{
-            backgroundColor: 'blue',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 80,
-            transform: [{ scale: trans }],
-          }}
-        >
-          <Text style={{ color: 'white' }}>Edit</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {
-            onDelete(item.id);
-            setIsSwiped(false);
-          }}
-          style={{
-            backgroundColor: 'red',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: 80,
-            transform: [{ scale: trans }],
-          }}
-        >
-          <Text style={{ color: 'white' }}>Delete</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
-
-  return (
-    <Swipeable
-      renderRightActions={(_, dragX) => renderRightActions(_, dragX)}
-      onSwipeableRightOpen={() => setIsSwiped(true)}
-      onSwipeableClose={() => setIsSwiped(false)}
-    >
-      <View style={{ padding: 16, backgroundColor: 'lightgrey' }}>
-        <Text>{item.title}</Text>
-        <Text>{item.body}</Text>
-      </View>
-    </Swipeable>
-  );
-};
+import { View, TextInput, Button, Alert } from 'react-native';
 
 const Page = () => {
-  const data = [
-    { id: '1', title: 'first item',body:'This is  the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issuis some of the issue bodyhis is some of the issue bodyhis is some of the issu of the issue bodyhis is some of the issue body' },
-    { id: '2', title: 'second item', body:'hello' },
-    { id: '3', title: 'thired item',body:'hello'  },
-    { id: '4', title: 'Item 4',body:'hello'  },
-    { id: '5', title: 'Item 5',body:'hello'  },
-    { id: '6', title: 'Item 6',body:'hello'  },
-    // Add more dummy data as needed
-  ];
+  const [first_name, setfirst_name] = useState('');
+  const [last_name, setlast_name] = useState('');
+  const [email, setemail] = useState('');
+  const [age, setage] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleEdit = (itemId) => {
-    // Implement your edit logic here
-    console.log(`Edit item with id ${itemId}`);
+  const handleRegistration = async () => {
+    try {
+      const response = await fetch('https://9cba-92-236-121-121.ngrok-free.app/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({first_name,last_name,email,age, username, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        Alert.alert('Registration Successful', 'You can now login.');
+      } else {
+        Alert.alert('Registration Failed', data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      Alert.alert('Error', 'An error occurred while registering.');
+    }
   };
 
-  const handleDelete = (itemId) => {
-    // Implement your delete logic here
-    console.log(`Delete item with id ${itemId}`);
-  };
 
   return (
-    <FlatList
-      data={data}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => (
-        <SwipeableItem item={item} onEdit={handleEdit} onDelete={handleDelete} />
-      )}
-    />
+    <View>
+      <TextInput
+        placeholder="Frist name"
+        value={first_name}
+        onChangeText={setfirst_name}
+      />
+      <TextInput
+        placeholder="last name"
+        value={last_name}
+        onChangeText={setlast_name}
+      />
+      <TextInput
+        placeholder="email"
+        value={email}
+        onChangeText={setemail}
+      />
+      <TextInput
+        placeholder="age"
+        value={age}
+        onChangeText={setage}
+      />
+      <TextInput
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+      />
+      <Button title="Register" onPress={handleRegistration} />
+    </View>
   );
 };
 

@@ -1,6 +1,8 @@
 import { View, Text, ImageBackground, FlatList, StyleSheet,ScrollView } from 'react-native'
 import React from 'react'
 
+import { Link } from 'expo-router'
+
 const Page = () => {
   const  data=[
     {id:1, title:"Prayers", description: "In Selassie church", updatedDate:"2024-02-14", image:require('../../assets/images/praying_monk.jpeg'), },
@@ -60,6 +62,12 @@ const Page = () => {
         keyExtractor={item => item.id}
         vertical
       />
+       <View>
+      <Link href={"/(modals)/login"}> Login</Link>
+      <Link href={"/(modals)/flier"}> flier</Link>
+      <Link href={"/(modals)/booking"}> Booking</Link>
+      <Link href={"/listing/1337"}> Listing details</Link>
+    </View>
       </ImageBackground>
   )
 }

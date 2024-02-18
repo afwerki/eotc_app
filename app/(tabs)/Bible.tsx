@@ -1,86 +1,64 @@
-import { FlatList, Image, StyleSheet, Text, View, SafeAreaView, ActivityIndicator } from 'react-native'
-import React, { useEffect, useState } from 'react'
+// App.js
 
-const page = () => {
-    const [products, setProducts] = useState([]);
-    const [isloading, setIsLoading] = useState(true);
-    const [error, setError]= useState(null);
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 
-    useEffect(()=>{
-        getProduct();
-    },[]);
+const Page = () => {
+  const [users, setUsers] = useState([]);
 
-    const getProduct = ()=>{   
-    const URL = 'https://fakestoreapi.com/products';
-    fetch(URL)
-    .then((res)=>{
-            if(!res.ok){
-                throw new Error("somthing went wrong Afe");
-            }
-        return res.json(); //convcert it into readable format
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-    })
-    .then((data)=>{
-        setProducts(data);
-        setIsLoading(false);
-
-    }).catch((error)=>{
-        setError(error.message);
-    });
-
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch('https://1d73-92-236-121-121.ngrok-free.app/users');
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching users: ', error);
     }
+  };
+
   return (
-    <View>
-    {
-        isloading?(
-            <ActivityIndicator color="red" size="large"/>
-        ):error? <Text style={styles.errorStyle}>{error}</Text>:(
-        <FlatList
-    showsVerticalScrollIndicator={false}
-      data={products}
-      renderItem={({item}) => (
-      <View style={styles.card}>
-        <Image source={{uri:item.image}} style={styles.cardImage}/>
-        <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text style={styles.cardTitle}>{item.description}</Text>
-        <Text style={{fontSize:18, textAlign:'center'}}>Uploaded date and uploaded by</Text>
-      </View>
-  )}
-/>
-        )
-    }
-   
-</View>
+    <View style={styles.container}>
+      <Text style={styles.heading}>User List</Text>
+      <FlatList
+        data={users}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.userContainer}>
+            <Text>{`Name: ${item.first_name} ${item.last_name}`}</Text>
+            <Text>{`Email: ${item.email}`}</Text>
+            <Text>{`Age: ${item.age}`}</Text>
+            <Text>{`Username: ${item.username}`}</Text>
+          </View>
+        )}
+      />
+    </View>
   );
 };
 
-export default page
-
 const styles = StyleSheet.create({
-    card: {
-        backgroundColor: '#fff',
-        borderRadius: 8,
-        elevation: 3,
-        shadowColor: '#333',
-        shadowOffset: { width: 1, height: 1 },
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        marginHorizontal: 4,
-        marginVertical: 6,
-      },
-      cardImage: {
-        width: '100%',
-        height: 200,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
-      },
-      cardTitle: {
-        fontSize: 18,
-        marginBottom: 8,
-      },
-      
-    errorStyle:{
-        color:'red',
-        fontSize:18
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  heading: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  userContainer: {
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+  },
 });
+
+export default Page;
+
+
+

@@ -1,61 +1,64 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Modal from 'react-native-modal';
+// App.js
+
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 
 const Page = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [users, setUsers] = useState([]);
 
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch('https://1d73-92-236-121-121.ngrok-free.app/users');
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching users: ', error);
+    }
   };
+
   return (
     <View style={styles.container}>
-    <TouchableOpacity style={styles.showModalButton} onPress={toggleModal}>
-      <Text>Show Modal</Text>
-    </TouchableOpacity>
-
-    <Modal
-      isVisible={isModalVisible}
-      onSwipeComplete={toggleModal}
-      swipeDirection={['down']}
-      style={styles.modal}
-    >
-      <View style={styles.modalContent}>
-        <Text>Modal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Contodal Content</Text>
-      </View>
-    </Modal>
-  </View>
-  )
-}
-
-export default Page
+      <Text style={styles.heading}>User List</Text>
+      <FlatList
+        data={users}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.userContainer}>
+            <Text>{`Name: ${item.first_name} ${item.last_name}`}</Text>
+            <Text>{`Email: ${item.email}`}</Text>
+            <Text>{`Age: ${item.age}`}</Text>
+            <Text>{`Username: ${item.username}`}</Text>
+          </View>
+        )}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  showModalButton:{
-    position:'absolute',
-    top:20,
-    left:20,
-    padding:10,
-    backgroundColor:'lightblue',
-    borderRadius:5,
+  heading: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
-modal:{
-  justifyContent:'flex-end',
-  margin:0,
-},
-modalContent:{
-  backgroundColor:'white',
-  padding:22,
-  justifyContent:'center',
-  alignContent:'center',
-  borderTopLeftRadius:10,
-  borderTopRightRadius:10,
-},
+  userContainer: {
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+  },
+});
 
-})
+export default Page;
+
+
+
