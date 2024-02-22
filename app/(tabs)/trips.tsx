@@ -11,7 +11,7 @@ const Page = () => {
 
   const handleRegistration = async () => {
     try {
-      const response = await fetch('https://9cba-92-236-121-121.ngrok-free.app/register', {
+      const response = await fetch('https://07f3-92-236-121-121.ngrok-free.app/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

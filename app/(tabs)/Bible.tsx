@@ -12,7 +12,7 @@ const Page = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('https://1d73-92-236-121-121.ngrok-free.app/users');
+      const response = await fetch('https://15ba-92-236-121-121.ngrok-free.app/users');
       const data = await response.json();
       setUsers(data);
     } catch (error) {
