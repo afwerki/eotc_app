@@ -21,8 +21,8 @@ const Layout = () => {
         tabBarIcon:({color, size})=><FontAwesome5 name="home" color={color}size={size}/>,
 
       }}/>
-      <Tabs.Screen name="Bible" options={{
-        tabBarLabel:'Bible',
+      <Tabs.Screen name="Books" options={{
+        tabBarLabel:'Books',
         tabBarIcon:({color, size})=><FontAwesome5 name="bible" color={color}size={size}/>,
 
       }}/>
