@@ -1,0 +1,2 @@
+Primary wooden colour :#eed3aa 
+ Another wooden colour for backgorond: #fad59e
