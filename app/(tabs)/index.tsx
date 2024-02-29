@@ -30,33 +30,32 @@ const index = () => {
   const types = [
     {
       id: "0",
-      image:
-        "https://media.istockphoto.com/id/157197704/photo/madonna-of-health.webp?b=1&s=170667a&w=0&k=20&c=-yufTICxryXiEL369vmo7KLA7eOD8gzrWC-KKpr15N0=",
-      name: "News",
+      image: "https://media.istockphoto.com/id/157197704/photo/madonna-of-health.webp?b=1&s=170667a&w=0&k=20&c=-yufTICxryXiEL369vmo7KLA7eOD8gzrWC-KKpr15N0=",
+      name: "ዜና",
     },
     {
       id: "1",
       image:
         "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "Mezmur",
+      name: "መዝሙር",
     },
     {
       id: "2",
       image:
         "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "Prayer",
+      name: "ፀሎት",
     },
     {
       id: "3",
       image:
         "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
-      name: "Work",
+      name: "ስራ",
     },
     {
       id: "4",
       image:
         "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
-      name: "Charity",
+      name: "በጎ አድራጎት",
     },
   ];
   return (
