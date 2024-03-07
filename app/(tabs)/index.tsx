@@ -23,40 +23,39 @@ const index = () => {
   const data = quickfood;
 
   const images = [
-    "https://media.istockphoto.com/id/157197704/photo/madonna-of-health.webp?b=1&s=170667a&w=0&k=20&c=-yufTICxryXiEL369vmo7KLA7eOD8gzrWC-KKpr15N0=",
-    "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-    "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
+    require('../.././assets/images/cross_in_room.jpeg'),
+    require('../.././assets/images/church_with_candles.jpeg'),
+    require('../.././assets/images/praying_monk.jpeg'),
   ];
   const types = [
     {
       id: "0",
-      image:
-        "https://media.istockphoto.com/id/157197704/photo/madonna-of-health.webp?b=1&s=170667a&w=0&k=20&c=-yufTICxryXiEL369vmo7KLA7eOD8gzrWC-KKpr15N0=",
-      name: "News",
+      image: require('../.././assets/images/praying_monk.jpeg'),
+      name: "ዜና",
     },
     {
       id: "1",
       image:
         "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "Mezmur",
+      name: "መዝሙር",
     },
     {
       id: "2",
       image:
         "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "Prayer",
+      name: "ፀሎት",
     },
     {
       id: "3",
       image:
         "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
-      name: "Work",
+      name: "ስራ",
     },
     {
       id: "4",
       image:
         "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
-      name: "Charity",
+      name: "በጎ አድራጎት",
     },
   ];
   return (
@@ -84,13 +83,17 @@ const index = () => {
     {/*image slider */}
     <SliderBox
       images={images}
+<<<<<<< HEAD
       autoplay 
+=======
+      autoplay
+>>>>>>> 7628ad4fa433b83344218f581224d09d6f640180
       circleLoop
       dotColor="#13274F"
       inactiveDotColor="#90A4AE"
       ImageComponentStyle={{
-        borderRadius: 6,
-        width: "94%",
+        borderRadius: 4,
+        width: "96%",
       }}
     />
     {/**food types */}
@@ -111,7 +114,7 @@ const index = () => {
     </View>
     {/**quick food */}
     <View style={{ marginTop: 10 }}>
-      <Text style={{ fontSize: 16, fontWeight: "500" }}>Get it quickly</Text>
+      <Text style={{ fontSize: 16, fontWeight: "500" }}>ማስታወቂያ</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {data.map((item, index) => (
           <Pressable style={{ margin: 10 }} key={index}>
@@ -160,7 +163,6 @@ const index = () => {
         ))}
       </ScrollView>
     </View>
-    {/**filter button
     <View
       style={{
         flexDirection: "row",
@@ -213,7 +215,6 @@ const index = () => {
         <Text>Sort by rating</Text>
       </Pressable>
     </View>
-     */}
     {/*Menu item */}
       
     
