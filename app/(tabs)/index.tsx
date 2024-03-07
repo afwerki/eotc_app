@@ -84,7 +84,7 @@ const index = () => {
     {/*image slider */}
     <SliderBox
       images={images}
-      atuoPlay
+      autoplay 
       circleLoop
       dotColor="#13274F"
       inactiveDotColor="#90A4AE"

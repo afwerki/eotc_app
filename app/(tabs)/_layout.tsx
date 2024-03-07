@@ -31,8 +31,8 @@ const Layout = () => {
         tabBarIcon:({color, size})=><FontAwesome5 name="cross" color={color}size={size}/>,
 
       }}/>
-       <Tabs.Screen name="inbox" options={{
-        tabBarLabel:'Inbox',
+       <Tabs.Screen name="News" options={{
+        tabBarLabel:'News',
         tabBarIcon:({color, size})=><MaterialCommunityIcons name="message-outline" color={color}size={size}/>,
 
       }}/>
