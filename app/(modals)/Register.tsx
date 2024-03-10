@@ -7,49 +7,85 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import { Link } from 'expo-router'
 
 const Page = () => {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Welcome Back!</Text>
-          <Text style={styles.subtitle}>Sign in to your account</Text>
+          <Text style={styles.title}>ተዋህዶ</Text>
+          <Text style={styles.subtitle}>እዚህ ላይ የሚሰጡንመረጃ ጠቃሚ ሰለሆነ በጥንቃቄ ይሙሉት</Text>
         </View>
 
         <View style={styles.form}>
-          <View style={styles.input}>
+        <View style={styles.input}>
             <Text style={styles.inputLabel}>Email address</Text>
             <TextInput 
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="email-address"
-            onChangeText={email=>setForm({...form, email})}
             placeholder="afe.programmer@gmail.com"
             placeholderTextColor='#6b7280'
             style={styles.inputControl}
-            value={form.email}
+            />
+          </View>
+          
+
+          <View style={styles.input}>
+            <Text style={styles.inputLabel}>Create Password</Text>
+            <Text style={{color:'gray', fontSize:12}}>የማይረሳ የይለፍ ቃል ያስገቡ</Text>
+
+            <TextInput
+              autoCorrect={false}
+              placeholder="********"
+              placeholderTextColor="#6b7280"
+              style={styles.inputControl}
+              secureTextEntry={true} />
+          </View>
+
+          <View style={styles.input}>
+            <Text style={styles.inputLabel}>ስም/first name</Text>
+            <TextInput 
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={styles.inputControl}
             />
           </View>
 
           <View style={styles.input}>
-            <Text style={styles.inputLabel}>Password</Text>
-
-            <TextInput
-              autoCorrect={false}
-              onChangeText={password => setForm({ ...form, password })}
-              placeholder="********"
-              placeholderTextColor="#6b7280"
-              style={styles.inputControl}
-              secureTextEntry={true}
-              value={form.password} />
+            <Text style={styles.inputLabel}>የአባት ስም/last name</Text>
+            <TextInput 
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={styles.inputControl}
+            />
           </View>
+          <View style={styles.input}>
+            <Text style={styles.inputLabel}>ፆታ/gender</Text>
+            <TextInput 
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={styles.inputControl}
+            />
+          </View>
+          <View style={styles.input}>
+            <Text style={styles.inputLabel}>እድሜ/age</Text>
+            <TextInput 
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={styles.inputControl}
+            />
+          </View>
+          <View style={styles.input}>
+            <Text style={styles.inputLabel}>ጋብቻ/marital satus</Text>
+            <TextInput 
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={styles.inputControl}
+            />
+          </View>
+         
 
           <View style={styles.formAction}>
             <TouchableOpacity
@@ -68,9 +104,9 @@ const Page = () => {
             }}>
             <Text style={styles.formFooter}>
               Don't have an account?{' '}
-              <Link href={"/(modals)/Register"} style={{ textDecorationLine: 'underline' }}> Register</Link>
+              <Text style={{ textDecorationLine: 'underline' }}>Sign up</Text>
             </Text>
-           </TouchableOpacity>
+          </TouchableOpacity>
 
 
         </View>

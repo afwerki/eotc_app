@@ -71,6 +71,23 @@ function RootLayoutNav() {
           
           
         }}/>
+        <Stack.Screen name='(modals)/Register'
+        options={{
+          title:'sign up',
+          headerTitleStyle:{
+            fontFamily:'mon-sb',
+          },
+          presentation:'modal',
+          headerLeft:()=>(
+            <TouchableOpacity onPress={()=> router.back()}>
+              <Ionicons name='close-outline' size={28}/>
+
+            </TouchableOpacity>
+
+          )
+          
+          
+        }}/>
 
         <Stack.Screen name='listing/[id]' options={{headerTitle:''}}/>
         <Stack.Screen name='(modals)/booking'

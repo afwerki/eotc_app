@@ -64,6 +64,7 @@ const Page = () => {
       />
        <View>
       <Link href={"/(modals)/login"}> Login</Link>
+      <Link href={"/(modals)/Register"}> Register</Link>
       <Link href={"/(modals)/flier"}> flier</Link>
       <Link href={"/(modals)/Upload_news"}>ዜና ይጫኑ</Link>
       <Link href={"/(modals)/Upload_mezmur"}> መዝሙር ይጫኑ </Link>
@@ -72,7 +73,9 @@ const Page = () => {
       </ImageBackground>
   )
 }
-
+/**
+ https://withfra.me/components/list-card-sections
+ */
 const styles=StyleSheet.create({
   background: {
     flex: 1,

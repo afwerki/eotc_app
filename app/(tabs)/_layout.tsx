@@ -27,18 +27,18 @@ const Layout = () => {
 
       }}/>
       <Tabs.Screen name="trips" options={{
-        tabBarLabel:'Chruch Songs',
+        tabBarLabel:'መዝሙር',
         tabBarIcon:({color, size})=><FontAwesome5 name="cross" color={color}size={size}/>,
 
       }}/>
        <Tabs.Screen name="News" options={{
         tabBarLabel:'News',
-        tabBarIcon:({color, size})=><MaterialCommunityIcons name="message-outline" color={color}size={size}/>,
-
+        tabBarIcon:({color, size})=><MaterialCommunityIcons name="newspaper-variant-outline" color={color}size={size}/>,
+        
       }}/>
-       <Tabs.Screen name="profile" options={{
-        tabBarLabel:'Profile',
-        tabBarIcon:({color, size})=><Ionicons name="person-circle" color={color}size={size}/>,
+       <Tabs.Screen name="Menu" options={{
+        tabBarLabel:'Menu',
+        tabBarIcon:({color, size})=><Ionicons name="menu" color={color}size={size}/>,
 
       }}/>
       

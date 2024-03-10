@@ -83,11 +83,7 @@ const index = () => {
     {/*image slider */}
     <SliderBox
       images={images}
-<<<<<<< HEAD
       autoplay 
-=======
-      autoplay
->>>>>>> 7628ad4fa433b83344218f581224d09d6f640180
       circleLoop
       dotColor="#13274F"
       inactiveDotColor="#90A4AE"
