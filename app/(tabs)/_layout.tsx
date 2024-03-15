@@ -26,8 +26,8 @@ const Layout = () => {
         tabBarIcon:({color, size})=><FontAwesome5 name="bible" color={color}size={size}/>,
 
       }}/>
-      <Tabs.Screen name="trips" options={{
-        tabBarLabel:'መዝሙር',
+      <Tabs.Screen name="መዝሙሮች" options={{
+        tabBarLabel:'መዝሙሮች',
         tabBarIcon:({color, size})=><FontAwesome5 name="cross" color={color}size={size}/>,
 
       }}/>
