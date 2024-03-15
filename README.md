@@ -1,3 +1,2 @@
-This is the beginning but as of today it looks like the following:
-![image](https://github.com/afwerki/eotc_app/assets/50844661/8f6b28a6-2b1c-4d4f-9172-6f1bee5351a6)
 
+![image_123650291](https://github.com/afwerki/eotc_app/assets/50844661/59cc637f-a737-4ffd-8971-96916c265706)
