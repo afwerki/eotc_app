@@ -140,6 +140,7 @@ const Page = () => {
  */
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#f3e4f1',
     padding: 24,
   },
   title: {

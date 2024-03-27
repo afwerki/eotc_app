@@ -1,0 +1,74 @@
+import React from "react";
+import { StyleSheet, View, Text, Image } from "react-native";
+
+const index = () => {
+  return (
+    <View style={styles.NewsContainer}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>
+          📰 News
+        </Text>
+        
+      <View style={styles.verticalLine} />
+      </View>
+      <View style={styles.bodyContainer}>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={{uri: 'https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2h1cmNofGVufDB8fDB8fHww'}}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+            eget urna vel est vehicula pretium. Maecenas non nisi nec sapien
+            tincidunt consequat. 
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  NewsContainer: {
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+  },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginRight: 10,
+  },
+  verticalLine: {
+    width: 1,
+    backgroundColor: "black",
+  },
+  bodyContainer: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  imageContainer: {
+    marginRight: 10,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 16,
+  },
+});
+
+export default index;
+

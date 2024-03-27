@@ -92,7 +92,7 @@ const Page = () => {
   return (
     <SafeAreaView style={{ backgroundColor: "#fff" }}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>የቤተክርስቲያን ዜናዎች</Text>
+        
         {items.map(({ img, title, author, authorImg, tag, date }, index) => {
           return (
             <TouchableOpacity
@@ -140,6 +140,7 @@ const Page = () => {
  */
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#f3e4f1',
     padding: 24,
   },
   title: {

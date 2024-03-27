@@ -1,16 +1,16 @@
 export default [
     {
         id:"0",
-        image:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/w1rrow27w3vb3ur5xbi9",
-        name:"McDonald's",
+        image:"https://images.unsplash.com/photo-1625268448699-8fdb2073a94c?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name:"በሎንዶ ደበረስናሴ",
         rating:4.3,
         time:"30-40",
         offer:"50%"
     },
     {
         id:"1",
-        image:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/ch07avzpos83wrfdfhyh",
-        name:"Special Biriyani",
+        image:"https://images.unsplash.com/photo-1625268448699-8fdb2073a94c?q=80&w=2865&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        name:"በሎንዶ ደበረስናሴ",
         rating:3.8,
         time:"30-40",
         offer:"60%"

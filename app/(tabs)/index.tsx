@@ -1,231 +1,310 @@
-// App.js
-import { StatusBar } from "expo-status-bar";
+import React from "react";
 import {
   StyleSheet,
-  View,
-  Text,
-  FlatList,
   SafeAreaView,
-  TextInput,
+  View,
+  TouchableOpacity,
   Image,
+  ScrollView,
+  Text,
   Pressable,
   ImageBackground,
 } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { SliderBox } from "react-native-image-slider-box";
-import { ScrollView } from "react-native-gesture-handler";
-import quickfood from "../../data/quickfood";
-import hotels from "../../data/hotels";
+import FeatherIcon from "react-native-vector-icons/Feather";
 import { MaterialIcons } from "@expo/vector-icons";
+import quickfood from "../../data/quickfood";
 import { Ionicons } from "@expo/vector-icons";
 
-const index = () => {
-  const data = quickfood;
-
-  const images = [
-    require('../.././assets/images/cross_in_room.jpeg'),
-    require('../.././assets/images/church_with_candles.jpeg'),
-    require('../.././assets/images/praying_monk.jpeg'),
-  ];
-  const types = [
+const categories = [
+  [
     {
-      id: "0",
-      image: require('../.././assets/images/praying_monk.jpeg'),
-      name: "ዜና",
-    },
-    {
-      id: "1",
-      image:
-        "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "መዝሙር",
-    },
-    {
-      id: "2",
-      image:
-        "https://media.istockphoto.com/id/883679092/photo/prayer-is-the-only-thing-thatll-get-you-through.webp?b=1&s=170667a&w=0&k=20&c=29P8gw2Ic096k8y7_BMcmAy5SjDj27FUx8pCB8PvRRQ=",
-      name: "ፀሎት",
-    },
-    {
-      id: "3",
-      image:
-        "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
+      icon: "🏨",
       name: "ስራ",
     },
     {
-      id: "4",
-      image:
-        "https://media.istockphoto.com/id/178366724/photo/nativity-scene.webp?b=1&s=170667a&w=0&k=20&c=6s7uSkH-xbzlUO3pb22vg3POERPXlD4OmnYpbhXODwY=",
-      name: "በጎ አድራጎት",
+      icon: "🚙",
+      name: "ሹፍርና",
     },
-  ];
+    {
+      icon: "🏠",
+      name: "ቤት ክራይ",
+    },
+  ],
+  [
+    {
+      icon: "💵",
+      name: "ብር መላኪያ",
+    },
+    {
+      icon: "🏦",
+      name: "Finance",
+    },
+    {
+      icon: "💳",
+      name: "Wallet",
+    },
+  ],
+];
+
+const index = () => {
+  const data = quickfood;
   return (
-    <ScrollView style={{ marginTop: 10 }}>
-    {/*search bar */}
-   {/**  <View
-      style={{
-        flexDirection: "row",
-        alignContent: "center",
-        justifyContent: "space-between",
-        borderWidth: 1,
-        margin: 10,
-        padding: 10,
-        borderColor: "#C0C0C0",
-        borderRadius: 7,
-      }}
-    >
-      <TextInput
-        style={{ fontSize: 17 }}
-        placeholder="search for church songs"
-      />
-      <AntDesign name="search1" size={24} color="#E52B50" />
-    </View>
-    */}
-    {/*image slider */}
-    <SliderBox
-      images={images}
-      autoplay 
-      circleLoop
-      dotColor="#13274F"
-      inactiveDotColor="#90A4AE"
-      ImageComponentStyle={{
-        borderRadius: 4,
-        width: "96%",
-      }}
-    />
-    {/**food types */}
-    <View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {types.map((item, index) => (
-          <View style={{ margin: 10 }} key={index}>
-            <Image
-              source={{ uri: item.image }}
-              style={{ width: 60, height: 60, borderRadius: 30 }}
-            />
-            <Text style={{ marginTop: 6, textAlign: "center" }}>
-              {item.name}
-            </Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.topContent}>
+          <TouchableOpacity
+            onPress={() => {
+              // handle onPress
+            }}
+          >
+            <View style={styles.banner}>
+              <Text>🤑</Text>
+              <Text style={styles.bannerText}>እንኮን ውደቤተክርስቲያን በሰላም መጡ</Text>
+              <FeatherIcon name="arrow-right" size={20} color="#fff" />
+            </View>
+          </TouchableOpacity>
+          <View style={styles.categories}>
+            {categories.map((row, index) => (
+              <View style={styles.categoriesRow} key={index}>
+                {row.map((item) => (
+                  <TouchableOpacity
+                    style={styles.category}
+                    key={item.name}
+                    onPress={() => {
+                      // handle onPress
+                      navigation.navigate(item.link);
+                    }}
+                  >
+                    <View style={styles.categoryIcon}>
+                      <Text style={{ fontSize: 36 }}>{item.icon}</Text>
+                    </View>
+                    <Text style={styles.categoryText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            ))}
           </View>
-        ))}
-      </ScrollView>
-    </View>
-    {/**quick food */}
-    <View style={{ marginTop: 10 }}>
-      <Text style={{ fontSize: 16, fontWeight: "500" }}>ማስታወቂያ</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {data.map((item, index) => (
-          <Pressable style={{ margin: 10 }} key={index}>
-            <ImageBackground
-              imageStyle={{ borderRadius: 6 }}
-              style={{ aspectRatio: 5 / 6, height: 170 }}
-              source={{ uri: item.image }}
-            >
-              <Text
-                style={{
-                  position: "absolute",
-                  bottom: 10,
-                  left: 10,
-                  fontSize: 27,
-                  fontWeight: "900",
-                  color: "white",
+        </View>
+        <View style={{ marginTop: 10, backgroundColor: "#f3e4f1" }}>
+          <Text style={{ fontSize: 16, fontWeight: "500" }}>ማስታወቂያ</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {data.map((item, index) => (
+              <Pressable style={{ margin: 10 }} key={index}>
+                <ImageBackground
+                  imageStyle={{ borderRadius: 6 }}
+                  style={{ aspectRatio: 5 / 6, height: 170 }}
+                  source={{ uri: item.image }}
+                ></ImageBackground>
+                <Text
+                  style={{ marginTop: 10, fontSize: 16, fontWeight: "500" }}
+                >
+                  {item.name}
+                </Text>
+              </Pressable>
+            ))}
+          </ScrollView>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        ></View>
+
+        <View style={styles.NewsContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>📰 News</Text>
+
+            <View style={styles.verticalLine} />
+          </View>
+          <View style={styles.bodyContainer}>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={{
+                  uri: "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2h1cmNofGVufDB8fDB8fHww",
                 }}
-              >
-                {item.offer} OFF
-              </Text>
-            </ImageBackground>
-            <Text style={{ marginTop: 10, fontSize: 16, fontWeight: "500" }}>
-              {item.name}
-            </Text>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginTop: 3,
-              }}
-            >
-              <MaterialIcons name="stars" size={24} color="green" />
-              <Text
-                style={{ marginLeft: 3, fontSize: 15, fontWeight: "400" }}
-              >
-                {item.rating}
-              </Text>
-              <Text style={{ marginLeft: 3 }}>.</Text>
-              <Text
-                style={{ marginLeft: 3, fontSize: 15, fontWeight: "400" }}
-              >
-                {item.time}mins
+              />
+            </View>
+
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                eget urna vel est vehicula pretium. Maecenas non nisi nec sapien
+                tincidunt consequat.
               </Text>
             </View>
-          </Pressable>
-        ))}
+          </View>
+          <View style={styles.bodyContainer}>
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.image}
+                source={{
+                  uri: "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2h1cmNofGVufDB8fDB8fHww",
+                }}
+              />
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                eget urna vel est vehicula pretium. Maecenas non nisi nec sapien
+                tincidunt consequat.
+              </Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
-    </View>
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-around",
-      }}
-    >
-      <Pressable
-        style={{
-          marginHorizontal: 10,
-          flexDirection: "row",
-          alignItems: "center",
-          borderWidth: 1,
-          borderColor: "#D0D0D0",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-          width: 120,
-        }}
-      >
-        <Text style={{ marginTop: 6 }}> Filter</Text>
-        <Ionicons name="filter" size={20} color="black" />
-      </Pressable>
-      <Pressable
-        style={{
-          marginHorizontal: 10,
-          flexDirection: "row",
-          alignItems: "center",
-          borderWidth: 1,
-          borderColor: "#D0D0D0",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-        }}
-      >
-        <Text>Sort by price</Text>
-      </Pressable>
-      <Pressable
-        style={{
-          marginHorizontal: 10,
-          flexDirection: "row",
-          alignItems: "center",
-          borderWidth: 1,
-          borderColor: "#D0D0D0",
-          padding: 10,
-          borderRadius: 20,
-          justifyContent: "center",
-        }}
-      >
-        <Text>Sort by rating</Text>
-      </Pressable>
-    </View>
-    {/*Menu item */}
-      
-    
-
-  </ScrollView>
+    </SafeAreaView>
   );
 };
+export default index;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#f3e4f1",
     flex: 1,
-    justifyContent: "center",
+  },
+  /** Top */
+  top: {
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+  },
+  topContent: {
+    paddingHorizontal: 24,
+  },
+  /** Header */
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
+  },
+  headerImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 9999,
+  },
+  /** Banner */
+  banner: {
+    marginTop: 12,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    backgroundColor: "#07a9e3",
+    padding: 16,
+    borderRadius: 16,
+  },
+  bannerText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#fff",
+    marginLeft: 8,
+    marginRight: "auto",
+  },
+  /** Categories */
+  categories: {
+    marginTop: 12,
+  },
+  categoriesRow: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 12,
+    marginHorizontal: -4,
+  },
+  /** Category */
+  category: {
+    flex: 1,
+    alignItems: "center",
+    paddingHorizontal: 4,
+  },
+  categoryIcon: {
+    width: "100%",
+    borderRadius: 16,
     backgroundColor: "#fff",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 36,
+  },
+  categoryText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#505050",
+    marginTop: 8,
+    textAlign: "center",
+  },
+  /** Content */
+  content: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingHorizontal: 24,
+    paddingBottom: 24,
+    marginTop: 8,
+    height: 420,
+  },
+  contentHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 12,
+  },
+  contentTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#505050",
+  },
+  contentLink: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#505050",
+  },
+  contentPlaceholder: {
+    borderStyle: "dashed",
+    borderWidth: 4,
+    borderColor: "#e5e7eb",
+    flex: 1,
+    borderRadius: 8,
+  },
+
+  NewsContainer: {
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+  },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginRight: 10,
+  },
+  verticalLine: {
+    width: 1,
+    backgroundColor: "black",
+  },
+  bodyContainer: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  imageContainer: {
+    marginRight: 10,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 16,
   },
 });
-
-export default index;

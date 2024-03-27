@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
   Switch,
   Image,
-} from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
-import { Link } from 'expo-router'
+} from "react-native";
+import FeatherIcon from "react-native-vector-icons/Feather";
+import { Link } from "expo-router";
 
 const Page = () => {
   const [form, setForm] = useState({
@@ -18,33 +18,28 @@ const Page = () => {
     pushNotifications: false,
   });
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#f8f8f8' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f8f8f8" }}>
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerAction}>
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
-              }}>
-              <FeatherIcon
-                color="#000"
-                name="arrow-left"
-                size={24} />
-                
+              }}
+            >
+              <FeatherIcon color="#000" name="arrow-left" size={24} />
             </TouchableOpacity>
           </View>
 
           <Text style={styles.headerTitle}>Settings</Text>
 
-          <View style={[styles.headerAction, { alignItems: 'flex-end' }]}>
+          <View style={[styles.headerAction, { alignItems: "flex-end" }]}>
             <TouchableOpacity
               onPress={() => {
                 // handle onPress
-              }}>
-              <FeatherIcon
-                color="#000"
-                name="more-vertical"
-                size={24} />
+              }}
+            >
+              <FeatherIcon color="#000" name="more-vertical" size={24} />
             </TouchableOpacity>
           </View>
         </View>
@@ -58,13 +53,15 @@ const Page = () => {
                 onPress={() => {
                   // handle onPress
                 }}
-                style={styles.profile}>
+                style={styles.profile}
+              >
                 <Image
                   alt=""
                   source={{
-                    uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80',
+                    uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
                   }}
-                  style={styles.profileAvatar} />
+                  style={styles.profileAvatar}
+                />
 
                 <View style={styles.profileBody}>
                   <Text style={styles.profileName}>Afe</Text>
@@ -74,10 +71,7 @@ const Page = () => {
                   </Text>
                 </View>
 
-                <FeatherIcon
-                  color="#bcbcbc"
-                  name="chevron-right"
-                  size={22} />
+                <FeatherIcon color="#bcbcbc" name="chevron-right" size={22} />
               </TouchableOpacity>
             </View>
           </View>
@@ -91,17 +85,15 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Language</Text>
 
                   <View style={styles.rowSpacer} />
 
                   <Text style={styles.rowValue}>English</Text>
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
 
@@ -110,17 +102,15 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Location</Text>
 
                   <View style={styles.rowSpacer} />
 
                   <Text style={styles.rowValue}>Los Angeles, CA</Text>
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
 
@@ -131,26 +121,31 @@ const Page = () => {
                   <View style={styles.rowSpacer} />
 
                   <Switch
-                    onValueChange={emailNotifications =>
+                    onValueChange={(emailNotifications) =>
                       setForm({ ...form, emailNotifications })
                     }
                     style={{ transform: [{ scaleX: 0.95 }, { scaleY: 0.95 }] }}
-                    value={form.emailNotifications} />
+                    value={form.emailNotifications}
+                  />
                 </View>
               </View>
 
               <View style={[styles.rowWrapper, styles.rowLast]}>
                 <View style={styles.row}>
-                  <Text style={styles.rowLabel}><Link href={"/(modals)/login"}> Add Mezmur</Link></Text>
+                  <Text style={styles.rowLabel}>
+                    <Link href={"/(modals)/login"}> Add Mezmur</Link>
+                    
+                  </Text>
 
                   <View style={styles.rowSpacer} />
 
                   <Switch
-                    onValueChange={pushNotifications =>
+                    onValueChange={(pushNotifications) =>
                       setForm({ ...form, pushNotifications })
                     }
                     style={{ transform: [{ scaleX: 0.95 }, { scaleY: 0.95 }] }}
-                    value={form.pushNotifications} />
+                    value={form.pushNotifications}
+                  />
                 </View>
               </View>
             </View>
@@ -165,15 +160,13 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Contact Us</Text>
 
                   <View style={styles.rowSpacer} />
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
 
@@ -182,15 +175,13 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Report Bug</Text>
 
                   <View style={styles.rowSpacer} />
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
 
@@ -199,15 +190,13 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Rate in App Store</Text>
 
                   <View style={styles.rowSpacer} />
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
 
@@ -216,15 +205,13 @@ const Page = () => {
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={styles.rowLabel}>Terms and Privacy</Text>
 
                   <View style={styles.rowSpacer} />
 
-                  <FeatherIcon
-                    color="#bcbcbc"
-                    name="chevron-right"
-                    size={19} />
+                  <FeatherIcon color="#bcbcbc" name="chevron-right" size={19} />
                 </TouchableOpacity>
               </View>
             </View>
@@ -237,13 +224,15 @@ const Page = () => {
                   styles.rowWrapper,
                   styles.rowFirst,
                   styles.rowLast,
-                  { alignItems: 'center' },
-                ]}>
+                  { alignItems: "center" },
+                ]}
+              >
                 <TouchableOpacity
                   onPress={() => {
                     // handle onPress
                   }}
-                  style={styles.row}>
+                  style={styles.row}
+                >
                   <Text style={[styles.rowLabel, styles.rowLabelLogout]}>
                     Log Out
                   </Text>
@@ -259,10 +248,11 @@ const Page = () => {
   );
 };
 
-export default Page
+export default Page;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#f3e4f1',
     padding: 0,
     flexGrow: 1,
     flexShrink: 1,
@@ -270,22 +260,22 @@ const styles = StyleSheet.create({
   },
   /** Header */
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
     paddingHorizontal: 16,
   },
   headerAction: {
     width: 40,
     height: 40,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: "flex-start",
+    justifyContent: "center",
   },
   headerTitle: {
     fontSize: 19,
-    fontWeight: '600',
-    color: '#000',
+    fontWeight: "600",
+    color: "#000",
   },
   /** Content */
   content: {
@@ -294,9 +284,9 @@ const styles = StyleSheet.create({
   contentFooter: {
     marginTop: 24,
     fontSize: 13,
-    fontWeight: '500',
-    textAlign: 'center',
-    color: '#a69f9f',
+    fontWeight: "500",
+    textAlign: "center",
+    color: "#a69f9f",
   },
   /** Section */
   section: {
@@ -307,13 +297,13 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     fontSize: 13,
     letterSpacing: 0.33,
-    fontWeight: '500',
-    color: '#a69f9f',
-    textTransform: 'uppercase',
+    fontWeight: "500",
+    color: "#a69f9f",
+    textTransform: "uppercase",
   },
   sectionBody: {
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -325,11 +315,11 @@ const styles = StyleSheet.create({
   /** Profile */
   profile: {
     padding: 12,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   profileAvatar: {
     width: 60,
@@ -338,33 +328,33 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   profileBody: {
-    marginRight: 'auto',
+    marginRight: "auto",
   },
   profileName: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#292929',
+    fontWeight: "600",
+    color: "#292929",
   },
   profileHandle: {
     marginTop: 2,
     fontSize: 16,
-    fontWeight: '400',
-    color: '#858585',
+    fontWeight: "400",
+    color: "#858585",
   },
   /** Row */
   row: {
     height: 44,
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
     paddingRight: 12,
   },
   rowWrapper: {
     paddingLeft: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderTopWidth: 1,
-    borderColor: '#f0f0f0',
+    borderColor: "#f0f0f0",
   },
   rowFirst: {
     borderTopLeftRadius: 12,
@@ -373,7 +363,7 @@ const styles = StyleSheet.create({
   rowLabel: {
     fontSize: 16,
     letterSpacing: 0.24,
-    color: '#000',
+    color: "#000",
   },
   rowSpacer: {
     flexGrow: 1,
@@ -382,8 +372,8 @@ const styles = StyleSheet.create({
   },
   rowValue: {
     fontSize: 16,
-    fontWeight: '500',
-    color: '#ababab',
+    fontWeight: "500",
+    color: "#ababab",
     marginRight: 4,
   },
   rowLast: {
@@ -391,9 +381,9 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 12,
   },
   rowLabelLogout: {
-    width: '100%',
-    textAlign: 'center',
-    fontWeight: '600',
-    color: '#dc2626',
+    width: "100%",
+    textAlign: "center",
+    fontWeight: "600",
+    color: "#dc2626",
   },
 });

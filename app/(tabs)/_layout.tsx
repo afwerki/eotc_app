@@ -18,6 +18,7 @@ const Layout = () => {
     >
       <Tabs.Screen name="index" options={{
         tabBarLabel:'Home',
+        title:'ቤተክርስቲያን',
         tabBarIcon:({color, size})=><FontAwesome5 name="home" color={color}size={size}/>,
 
       }}/>
@@ -33,6 +34,7 @@ const Layout = () => {
       }}/>
        <Tabs.Screen name="News" options={{
         tabBarLabel:'News',
+        title:'የቤተክርስቲያን ዜናዎች',
         tabBarIcon:({color, size})=><MaterialCommunityIcons name="newspaper-variant-outline" color={color}size={size}/>,
         
       }}/>
